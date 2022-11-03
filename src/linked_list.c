@@ -26,20 +26,51 @@ void free_list(node *p) {
 void print_list(node *p) {
   // Add your code for exercise 1
   // There is NO testcode for this
+  if (p->next==NULL) {
+  }
+  else {
+    printf("%d",p->next->value);
+    print_list(p->next);
+  }
 }
 
 int sum_squares(node *p) {
   // Add your code for excercise 2
   // You can find the tests in tests.cpp
-  return -1;
+  int sum = 0;
+  
+  if (p==NULL) {
+    return 0;
+  }
+  if (p->next==NULL) {
+    sum+= (p->value)*(p->value);
+  } else {
+    sum+=(p->value)*(p->value);
+    sum+=sum_squares(p->next);
+  }
+
+  return sum;
+
 }
 
 typedef int (*fn_int_to_int)(int);
 
+//ved ikke om dette er den korrekte fremgangsmåde/forståelse af opgaven.
+
+//Recursive map function 
 node *map(node *p, fn_int_to_int f) { 
-  // Add your code for excercise 3
-  
-  return NULL; 
+  //Recursive map function
+  node *temp = malloc(sizeof(node));
+
+  if (p->next==NULL) {
+    temp->value=f(p->value);
+    return temp;
+  }
+
+  temp->next=map(p->next,f);
+  temp->value=f(p->value);
+
+  return temp; 
 }
 
 int square(int x) { return x * x; }
