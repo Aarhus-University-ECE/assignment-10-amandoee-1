@@ -117,10 +117,6 @@ void remove_recursively(int x, struct tree_node *t) {
 struct tree_node *Remove(int x, struct tree_node *t) {
   // Remove one item from the tree t
 
-  if(Contains(x,t)==false) {
-    printf("Den er der ikke i forvejen...");
-  }
-
   if (x<=t->item && t->left->item==x) {
     free(t->left);
     return t;
