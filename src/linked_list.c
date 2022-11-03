@@ -43,7 +43,7 @@ int sum_squares(node *p) {
     return 0;
   }
   if (p->next==NULL) {
-    sum+= (p->value)*(p->value);
+    sum+= p->value*p->value;
   } else {
     sum+=(p->value)*(p->value);
     sum+=sum_squares(p->next);

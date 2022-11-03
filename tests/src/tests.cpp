@@ -61,10 +61,8 @@ TEST_CASE("linked_list") {
 
     // (1^2)^2 1 + (2^2)^2 + (3^2)^2 = 1^4 + 2^4 + 3^4 = 98
     REQUIRE(sum == 98);
-    printf("test1");
-
+    
   }
-  printf("test2");
 }
 
 TEST_CASE("btree") {
