@@ -63,7 +63,8 @@ node *map(node *p, fn_int_to_int f) {
   node *temp = malloc(sizeof(node));
 
   if (p->next==NULL) {
-    temp->value=f(p->value);
+    temp->value=(p->value)*(p->value);
+    temp->next=NULL;
     return temp;
   }
 

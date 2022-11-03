@@ -34,20 +34,26 @@ TEST_CASE("linked_list") {
   }
 
   // exercise 3
+  
   {
+    
     int sum;
     node *ns = make_node(1, NULL);
+    
     // ns contains one node with the value 1
-    node *mns = map(ns, square);
-    sum = sum_squares(mns);
+    node *mns = map(ns, square); //problemet opstår her
+    
+    sum = sum_squares(mns); //PROBLEMBARNET
 
     REQUIRE(sum == 1);
+    
+    
     free_list(ns);
     free_list(mns);
     // dangling pointer we need to set it to null
     ns = NULL;
     mns = NULL;
-
+  
     ns = make_node(1, make_node(2, make_node(3, NULL)));
     // ns is 1->2->3
     mns = map(ns, square);
@@ -61,8 +67,9 @@ TEST_CASE("linked_list") {
 
     // (1^2)^2 1 + (2^2)^2 + (3^2)^2 = 1^4 + 2^4 + 3^4 = 98
     REQUIRE(sum == 98);
-    
+
   }
+
 }
 
 TEST_CASE("btree") {
@@ -97,6 +104,7 @@ TEST_CASE("btree") {
   root = Insert(40, root);
   root = Insert(45, root);
   root = Insert(42, root);
+
 
   REQUIRE(Contains(20, root) == 1);
   REQUIRE(Contains(5, root) == 1);
